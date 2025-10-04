@@ -13,7 +13,7 @@ export const useAxios = (url) => {
             .then((res) => setData(res.data))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
-    }, [url]);
+    }, [url]);  
 
     return { loading, error, data };
 };
