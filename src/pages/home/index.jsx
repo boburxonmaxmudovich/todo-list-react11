@@ -4,6 +4,7 @@ import Card from "../../components/card";
 import { Skeleton } from "antd";
 import SkeltonComponent from "../../components/skeleton";
 
+
 const Home = () => {
   const { data, loading } = useAxios("products");
   console.log(data);
@@ -14,6 +15,7 @@ const Home = () => {
       ) : (
         data.map((value) => <Card key={value.id} {...value} />)
       )}
+
     </div>
   );
 };

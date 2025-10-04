@@ -2,18 +2,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const useAxios = (url) => {
-  const [loading, setLaoding] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [data, setData] = useState([]);
 
-  useEffect(() => {
-    setLaoding(true);
-    axios
-      .get(`https://dummyjson.com/${url}`)
-      .then((res) => setData(res.data.products))
-      .catch((error) => setError(error))
-      .finally(() => setLaoding(false));
-  }, []);
+    useEffect(() => {
+        setLoading(true);
+        axios
+            .get(`https://68dd3ea27cd1948060acf9af.mockapi.io/zon-uz/${url}`)
+            .then((res) => setData(res.data))
+            .catch((error) => setError(error))
+            .finally(() => setLoading(false));
+    }, [url]);
 
-  return { loading, error, data };
+    return { loading, error, data };
 };
